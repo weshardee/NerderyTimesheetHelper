@@ -9,7 +9,7 @@
   },
   "options_page": "options.html",
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["scripts/background.js"]
   },
   "content_scripts": [
     {
@@ -18,8 +18,8 @@
         "lib/underscore.min.js",
         "lib/jquery.min.js",
         "lib/moment.min.js",
-        "keybindings.js",
-        "content.js"
+        "scripts/keybindings.js",
+        "scripts/content.js"
       ]
     }
   ],
