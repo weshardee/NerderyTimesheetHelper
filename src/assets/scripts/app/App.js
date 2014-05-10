@@ -1,11 +1,37 @@
+'use strict';
+
+var _ = require('lodash');
+
+/**
+ * Initial application setup. Runs once upon every page load.
+ *
+ * @class App
+ * @constructor
+ */
+var App = function() {
+    this.init();
+};
+
+var proto = App.prototype;
+
+/**
+ * Initializes the application and kicks off loading of prerequisites.
+ *
+ * @method init
+ * @private
+ */
+proto.init = function() {
+    // Create your views here
+};
+
 (function($, root, undefined) {
 
     // Delay the execution of a function by a set time
     function delay(func, time) {
         var timeout = null;
-        timeout = setTimeout(function() { 
-            func(); 
-            timeout = null; 
+        timeout = setTimeout(function() {
+            func();
+            timeout = null;
         }, time || 100);
     }
 
@@ -145,7 +171,7 @@
             // Handle submission of the time entry form
             $(root.document).on('submit', this.selectors.entryForm, function (e) {
                 e.preventDefault();
-                self.submitForm($(this)); 
+                self.submitForm($(this));
                 return false;
             });
             // Intercept deletes in order to perform them asynchronously
@@ -238,7 +264,7 @@
                 $(self.selectors.entryForm).submit();
                 // Exit early
                 return false;
-            } 
+            }
             else {
                 // Check for time modifications
                 var timeUpdated = false;
@@ -644,3 +670,5 @@
 
 
 })(jQuery, window);
+
+module.exports = App;

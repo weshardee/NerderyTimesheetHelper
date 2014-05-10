@@ -5,7 +5,7 @@
 // separate modules in their own files.
 
 // Require
-var App = require('./App');
+var App = require('./app/App');
 
 // Initialize
-window.app = new App();
+window.timesheethelper = new App();

@@ -5,7 +5,8 @@
   "dependencies": {
     "nerdery-reset-css": "./tools/cache/nerdery-reset-css",
     "jquery": "components/jquery#1.11.0",
-    "zepto": "~1.1.3"
+    "zepto": "~1.1.3",
+    "lodash": "~2.4.1"
   },
   "devDependencies": {}
 }

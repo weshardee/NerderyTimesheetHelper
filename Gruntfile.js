@@ -212,7 +212,7 @@ module.exports = function(grunt) {
                     'deglobalify'
                 ],
                 shim: {
-                    
+                    "jquery": "zepto",
                 }
             },
             all: {
@@ -227,7 +227,7 @@ module.exports = function(grunt) {
                     dest: '<%= env.DIR_DEST %>',
                     src: ['assets/scripts/*.js']
                 }]
-            }
+            },
         },
 
         // -- Task Helpers -----------------------------------------------------

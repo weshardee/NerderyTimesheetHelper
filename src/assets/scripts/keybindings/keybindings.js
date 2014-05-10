@@ -199,7 +199,7 @@ var KEYS = {
     },
     // Pretty print the provided combo
     getComboString: function(combo) {
-        var meta = (combo.ctrl  ? 'CTRL+'  : '') + 
+        var meta = (combo.ctrl  ? 'CTRL+'  : '') +
                    (combo.alt   ? 'ALT+'   : '') +
                    (combo.shift ? 'SHIFT+' : '') +
                    (combo.meta  ? 'META+'  : '');
@@ -252,3 +252,5 @@ var BINDINGS = {
     'inc_row':        KEYS.newCombo('Up',   ['alt']),
     'dec_row':        KEYS.newCombo('Down', ['alt'])
 };
+
+module.exports = BINDINGS;
