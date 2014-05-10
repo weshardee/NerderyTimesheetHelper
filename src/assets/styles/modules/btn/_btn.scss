@@ -1,0 +1,40 @@
+.th-btn {
+    position: relative;
+    display: inline-block;
+    margin: 0 0 $SPACING;
+
+    padding-top: $SIZE;
+    padding-right: $SIZE * 2;
+    padding-bottom: $SIZE * 1.0625;
+    padding-left: $SIZE * 2;
+
+    border: 0;
+    background-color: $COLOR_1;
+    color: #ffffff;
+
+    font-family: $FONT;
+    font-size: $SIZE_LG;
+    font-weight: normal;
+    line-height: normal;
+    text-decoration: none;
+    text-align: center;
+
+    cursor: pointer;
+
+
+    @include transition(background-color 300ms ease-out);
+
+}
+
+.th-btn_fill {
+    display: block;
+}
+
+.th-btn_alt {
+    background-color: $COLOR_GREY_LIGHT;
+    color: $COLOR_GREY_DARK;
+
+    &:hover {
+        background-color: $COLOR_GREY;
+    }
+}

@@ -189,6 +189,21 @@ module.exports = function(grunt) {
             }
         },
 
+        sass: {
+            options: {
+                includePaths: ['<%= env.DIR_BOWER %>/bourbon/dist']
+            },
+            dist: {
+                options: {
+                    outputStyle: 'extended'
+                },
+                files: {
+                    '<%= env.DIR_DEST %>/assets/styles/options.css':'<%= env.DIR_SRC %>/assets/styles/options.scss',
+                    '<%= env.DIR_DEST %>/assets/styles/screen.css':'<%= env.DIR_SRC %>/assets/styles/screen.scss'
+                }
+            }
+        },
+
         // -- Script Tasks -----------------------------------------------------
 
         browserify: {
@@ -247,6 +262,10 @@ module.exports = function(grunt) {
                 files: ['<%= env.DIR_SRC %>/assets/{styles,vendor}/**/*.css'],
                 tasks: ['styles']
             },
+            sass: {
+                files: ['<%= env.DIR_SRC %>/assets/styles/*.scss'],
+                tasks: ['sass']
+            },
             scripts: {
                 files: ['<%= env.DIR_SRC %>/assets/{scripts,vendor}/**/*.js'],
                 tasks: ['scripts']
@@ -295,6 +314,6 @@ module.exports = function(grunt) {
     // but may be run manually with `grunt [task-name]`
     grunt.registerTask('media', ['copy:media']);
     grunt.registerTask('markup', ['copy:markup']);
-    grunt.registerTask('styles', ['cssmin']);
+    grunt.registerTask('styles', ['sass']);
     grunt.registerTask('scripts', ['browserify']);
 };

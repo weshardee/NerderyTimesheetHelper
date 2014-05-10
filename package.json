@@ -3,8 +3,7 @@
   "version": "2.0.0",
   "description": "A chrome extension to make timesheet entry painless",
   "private": true,
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt": "0.4.1",
     "load-grunt-tasks": "0.2.0",
@@ -25,7 +24,8 @@
     "debowerify": "0.3.0",
     "decomponentify": "0.0.3",
     "deglobalify": "0.2.0",
-    "grunt-browserify": "1.2.11"
+    "grunt-browserify": "1.2.11",
+    "grunt-sass": "^0.12.1"
   },
   "scripts": {
     "postinstall": "node tools/npm-postinstall"
