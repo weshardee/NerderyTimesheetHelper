@@ -7,7 +7,7 @@
   "icons": {
     "128": "web/assets/media/images/icon.png"
   },
-  "options_page": "src/options.html",
+  "options_page": "web/options.html",
   "background": {
     "scripts": ["web/assets/scripts/background.js"]
   },
@@ -17,6 +17,7 @@
       "js": ["web/assets/scripts/main.js"]
     }
   ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "permissions": [
       "https://mainframe.nerdery.com/timesheet.php",
       "https://mainframe.nerdery.com/timesheet.php?",

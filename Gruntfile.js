@@ -90,17 +90,6 @@ module.exports = function(grunt) {
                     dest: '<%= env.DIR_DEST %>'
                 }]
             },
-            server: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= env.DIR_SRC %>',
-                    src: [
-                        '**/*.{php,rb,py,jsp,asp,aspx,cshtml,txt}',
-                        '!assets/vendor/**'
-                    ],
-                    dest: '<%= env.DIR_DEST %>'
-                }]
-            },
             markup: {
                 files: [{
                     expand: true,
@@ -211,9 +200,8 @@ module.exports = function(grunt) {
                     'deamdify',
                     'deglobalify'
                 ],
-                shim: {
-                    "jquery": "zepto",
-                }
+                // alias: [
+                // ]
             },
             all: {
                 options: {
@@ -251,10 +239,6 @@ module.exports = function(grunt) {
                 files: ['<%= env.DIR_SRC %>/assets/media/**'],
                 tasks: ['media']
             },
-            server: {
-                files: ['<%= env.DIR_SRC %>/**/*.{php,rb,py,jsp,asp,aspx,cshtml,txt}'],
-                tasks: ['server']
-            },
             markup: {
                 files: ['<%= env.DIR_SRC %>/**/*.html'],
                 tasks: ['markup']
@@ -275,7 +259,7 @@ module.exports = function(grunt) {
         // tasks should be registered at the bottom of this file.
         concurrent: {
             lint: ['csslint', 'jshint'],
-            build: ['media', 'server', 'markup', 'styles', 'scripts'],
+            build: ['media', 'markup', 'styles', 'scripts'],
             docs: ['yuidoc']
         }
     });
@@ -310,7 +294,6 @@ module.exports = function(grunt) {
     // Typically used by the `concurrent` and `watch` tasks
     // but may be run manually with `grunt [task-name]`
     grunt.registerTask('media', ['copy:media']);
-    grunt.registerTask('server', ['copy:server']);
     grunt.registerTask('markup', ['copy:markup']);
     grunt.registerTask('styles', ['cssmin']);
     grunt.registerTask('scripts', ['browserify']);

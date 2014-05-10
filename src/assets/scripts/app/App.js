@@ -1,5 +1,6 @@
 'use strict';
 
+var $ = require('jquery');
 var _ = require('lodash');
 
 /**
@@ -22,6 +23,7 @@ var proto = App.prototype;
  */
 proto.init = function() {
     // Create your views here
+    console.log('test');
 };
 
 (function($, root, undefined) {

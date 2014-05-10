@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "description": "A chrome extension to make timesheet entry painless",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "grunt": "0.4.1",
     "load-grunt-tasks": "0.2.0",
