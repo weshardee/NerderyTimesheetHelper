@@ -1,61 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Nerdery Timesheet Helper Options</title>
-	<link rel="stylesheet" href="assets/styles/options.css" />
+    <meta charset="UTF-8">
+    <title>Nerdery Timesheet Helper Options</title>
+    <link rel="stylesheet" href="assets/styles/options.css" />
 </head>
 <body>
-	<h1>Nerdery Timesheet Helper Options</h1>
+    <h1>Nerdery Timesheet Helper Options</h1>
 
-	<!-- OPTIONS -->
-	<form action="">
-		<fieldset>
-			<h2>Keybindings</h2>
-			<div class="row">
-				<label for="inc_start_time">Increment Start Time</label>
-				<input type="text" name="inc_start_time" id="inc_start_time" data-keybinder />
-				<span class="comment">Press ESC or BACKSPACE to clear. Tab to accept.</span>
-			</div>
-			<div class="row">
-				<label for="dec_start_time">Decrement Start Time</label>
-				<input type="text" name="dec_start_time" id="dec_start_time" data-keybinder />
-				<span class="comment">Press ESC or BACKSPACE to clear. Tab to accept.</span>
-			</div>
-			<div class="row">
-				<label for="inc_end_time">Increment End Time</label>
-				<input type="text" name="inc_end_time" id="inc_end_time" data-keybinder />
-				<span class="comment">Press ESC or BACKSPACE to clear. Tab to accept.</span>
-			</div>
-			<div class="row">
-				<label for="dec_end_time">Decrement End Time</label>
-				<input type="text" name="dec_end_time" id="dec_end_time" data-keybinder />
-				<span class="comment">Press ESC or BACKSPACE to clear. Tab to accept.</span>
-			</div>
-			<div class="row">
-				<label for="inc_row">Navigate Up One Row</label>
-				<input type="text" name="inc_row" id="inc_row" data-keybinder />
-				<span class="comment">Press ESC or BACKSPACE to clear. Tab to accept.</span>
-			</div>
-			<div class="row">
-				<label for="dec_row">Navigate Down One Row</label>
-				<input type="text" name="dec_row" id="dec_row" data-keybinder />
-				<span class="comment">Press ESC or BACKSPACE to clear. Tab to accept.</span>
-			</div>
-		</fieldset>
-		<div class="row">
-			<input type="submit" value="Save" />
-			<input type="reset" value="Reset" />
-			<!-- NOTIFICATIONS -->
-			<div id="status"></div>
-		</div>
-	</form>
+    <!-- OPTIONS -->
+    <form action="">
+        <fieldset>
+            <h2>Keybindings</h2>
+            <span class="comment">Press ESC or BACKSPACE to clear. Tab to accept.</span>
 
-	<p class="about">
-		Want the source code? <a href="https://github.com/bitwalker/NerderyTimesheetHelper/">Check out the GitHub!</a><br />
-	</p>
+            <ul class="vList">
+                <li>
+                    <label class="optionsLabel" for="inc_start_time">Increment Start Time</label>
+                    <input class="optionsInput" type="text" name="inc_start_time" id="inc_start_time" data-keybinder />
+                </li>
+                <li>
+                    <label class="optionsLabel" for="dec_start_time">Decrement Start Time</label>
+                    <input class="optionsInput" type="text" name="dec_start_time" id="dec_start_time" data-keybinder />
+                </li>
+                <li>
+                    <label class="optionsLabel" for="inc_end_time">Increment End Time</label>
+                    <input class="optionsInput" type="text" name="inc_end_time" id="inc_end_time" data-keybinder />
+                </li>
+                <li>
+                    <label class="optionsLabel" for="dec_end_time">Decrement End Time</label>
+                    <input class="optionsInput" type="text" name="dec_end_time" id="dec_end_time" data-keybinder />
+                </li>
+                <li>
+                    <label class="optionsLabel" for="inc_row">Navigate Up One Row</label>
+                    <input class="optionsInput" type="text" name="inc_row" id="inc_row" data-keybinder />
+                </li>
+                <li>
+                    <label class="optionsLabel" for="dec_row">Navigate Down One Row</label>
+                    <input class="optionsInput" type="text" name="dec_row" id="dec_row" data-keybinder />
+                </li>
+            </ul>
+        </fieldset>
+        <div>
+            <input type="submit" value="Save" />
+            <input type="reset" value="Reset" />
+            <!-- NOTIFICATIONS -->
+            <div id="status"></div>
+        </div>
+    </form>
 
-	<!-- EXTERNAL SCRIPTS -->
-	<script src="assets/scripts/options.js"></script>
+    <p class="about">
+    	Want the source code? <a href="https://github.com/bitwalker/NerderyTimesheetHelper/">Check out the GitHub!</a><br />
+    </p>
+
+    <!-- EXTERNAL SCRIPTS -->
+    <script src="assets/scripts/options.js"></script>
 </body>
 </html>

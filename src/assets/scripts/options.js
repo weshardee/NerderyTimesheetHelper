@@ -55,6 +55,11 @@ function onSubmit(e) {
     save();
 }
 
+function onReset(e) {
+    e.preventDefault();
+    reset();
+}
+
 function onKeydown(e) {
     // Get the current key combo
     var combo = Keys.getComboForEvent(e);
@@ -86,7 +91,18 @@ function save() {
 function restore() {
     _.each(Bindings, restoreBinding);
     // Display keybindings
+    show();
+}
+
+function show() {
     _.each(Bindings, displayBinding);
+}
+
+// Resets the options to the defaults
+function reset() {
+    Bindings = _.clone(DEFAULT_BINDINGS);
+    save();
+    show();
 }
 
 // On load, restore options if they were previously stored
@@ -94,6 +110,7 @@ restore();
 
 // When form is submitted, save options
 $('form').on('submit', onSubmit);
+$('form').on('reset', onReset);
 
 // Wire up keybind input fields
 $('input[data-keybinder]').on('keydown', onKeydown);
