@@ -1,3 +1,20 @@
 .th-hdg {
+    margin-top: 0.2 * $SIZE;
+    margin-bottom: 0.5 * $SIZE;
+
+    color: $COLOR_GREY_DARK;
+
     font-family: $FONT_ALT;
+    font-weight: 100;
+    line-height: 1.4;
+    letter-spacing: 2px;
+
+    text-rendering: optimizeLegibility;
 }
+
+$hdg-SIZE: $SIZE * 2.5;
+
+.th-hdg_1 { font-size: $hdg-SIZE; }
+.th-hdg_2 { font-size: $hdg-SIZE * 0.8; }
+.th-hdg_3 { font-size: $hdg-SIZE * 0.7; }
+.th-hdg_4 { font-size: $hdg-SIZE * 0.6; }

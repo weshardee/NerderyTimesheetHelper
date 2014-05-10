@@ -7,7 +7,7 @@ Element Styles
 
 body {
     font-family: $FONT;
-    font-size:$SIZE_LG;
+    font-size: $SIZE;
     color: $COLOR_GREY_DARK;
     line-height: 1.4;
 }
@@ -25,18 +25,6 @@ fieldset {
     margin-bottom:15px;
 }
 
-label {
-    display:inline-block;
-    vertical-align:top;
-    width:15em;
-    margin-right:1em;
-}
-
-input {
-    vertical-align:middle;
-}
-
-input[type=text],
-input[type=number] {
-    padding:3px;
+p {
+    margin-bottom: $SIZE;
 }

@@ -4,42 +4,13 @@
 @import "base/reset";
 @import "base/elements";
 
+@import "modules/row/row";
 @import "modules/btn/btn";
-
-.row {
-	margin-bottom:2em;
-}
-
-.comment {
-	display:block;
-	color:#aaa;
-	font-size:10px;
-	margin-top:0.5em;
-}
-
-.row-textarea label {
-	width:auto;
-	display:block;
-	margin-bottom:0.5em;
-}
-
-textarea {
-	width:50em;
-	height:20em;
-}
-
-input[name='search.max_visible'],
-input[name=init_depth] {
-	width:5em;
-}
-
-input[name="dnd.xpath_quote"] {
-	width:1em;
-}
-
-input[type=submit] {
-	font-size:20px;
-}
+@import "modules/txt/txt";
+@import "modules/hdg/hdg";
+@import "modules/bordered/bordered";
+@import "modules/label/label";
+@import "modules/field/field";
 
 #status {
 	width: 300px;

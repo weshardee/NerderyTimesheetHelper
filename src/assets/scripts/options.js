@@ -3,8 +3,8 @@ var $ = require('jquery');
 var _ = require('lodash');
 var Keys = require('./keys/keys');
 
-var CLASS_ERROR = 'error';
-var CLASS_SUCCESS = 'success';
+var CLASS_ERROR = 'status_error';
+var CLASS_SUCCESS = 'status_success';
 
 // Default bindings
 var DEFAULT_BINDINGS = {

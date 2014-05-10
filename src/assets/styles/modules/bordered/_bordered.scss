@@ -1,0 +1,27 @@
+.bordered {
+    padding-top: $SPACING;
+    margin-top: $SPACING;
+    margin-bottom: $SPACING;
+    border: 0px solid $COLOR_GREY_LIGHT;
+    border-width: 1px 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.bordered_bottom {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.bordered_top {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}

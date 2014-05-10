@@ -1,3 +1,19 @@
 .status {
-    
+
+}
+
+.status {
+    width: 300px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.status_success {
+    background-color: #B9F2B9;
+}
+
+.status_error {
+    background-color: #F29688;
 }

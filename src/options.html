@@ -6,52 +6,58 @@
     <link rel="stylesheet" href="assets/styles/options.css" />
 </head>
 <body class="th-base">
-    <h1 class="th-hdg">Nerdery Timesheet Helper Options</h1>
+    <div class="row">
+        <div class="row-col">
+            <div class="bordered bordered_top">
+                <h1 class="th-hdg th-hdg_1">Nerdery Timesheet Helper Options</h1>
+            </div>
 
-    <!-- OPTIONS -->
-    <form action="">
-        <fieldset>
-            <h2>Keybindings</h2>
-            <span class="comment">Press ESC or BACKSPACE to clear. Tab to accept.</span>
+            <!-- OPTIONS -->
+            <form action="">
+                <fieldset class="bordered bordered_bottom">
+                    <legend class="th-hdg th-hdg_2">Keybindings</legend>
+                    <p class="txt txt_sm">Press ESC or BACKSPACE to clear. Tab to accept.</p>
 
-            <ul class="vList">
-                <li>
-                    <label class="optionsLabel" for="inc_start_time">Increment Start Time</label>
-                    <input class="optionsInput" type="text" name="inc_start_time" id="inc_start_time" data-keybinder />
-                </li>
-                <li>
-                    <label class="optionsLabel" for="dec_start_time">Decrement Start Time</label>
-                    <input class="optionsInput" type="text" name="dec_start_time" id="dec_start_time" data-keybinder />
-                </li>
-                <li>
-                    <label class="optionsLabel" for="inc_end_time">Increment End Time</label>
-                    <input class="optionsInput" type="text" name="inc_end_time" id="inc_end_time" data-keybinder />
-                </li>
-                <li>
-                    <label class="optionsLabel" for="dec_end_time">Decrement End Time</label>
-                    <input class="optionsInput" type="text" name="dec_end_time" id="dec_end_time" data-keybinder />
-                </li>
-                <li>
-                    <label class="optionsLabel" for="inc_row">Navigate Up One Row</label>
-                    <input class="optionsInput" type="text" name="inc_row" id="inc_row" data-keybinder />
-                </li>
-                <li>
-                    <label class="optionsLabel" for="dec_row">Navigate Down One Row</label>
-                    <input class="optionsInput" type="text" name="dec_row" id="dec_row" data-keybinder />
-                </li>
-            </ul>
-        </fieldset>
-        <div>
-            <button class="th-btn" type="submit">Save</button>
-            <button class="th-btn th-btn_alt" type="reset">Reset</button>
-            <!-- NOTIFICATIONS -->
-            <div id="status"></div>
+                    <ul class="vList">
+                        <li>
+                            <label class="th-label" for="inc_start_time">Increment Start Time</label>
+                            <input class="th-field" type="text" name="inc_start_time" id="inc_start_time" data-keybinder />
+                        </li>
+                        <li>
+                            <label class="th-label" for="dec_start_time">Decrement Start Time</label>
+                            <input class="th-field" type="text" name="dec_start_time" id="dec_start_time" data-keybinder />
+                        </li>
+                        <li>
+                            <label class="th-label" for="inc_end_time">Increment End Time</label>
+                            <input class="th-field" type="text" name="inc_end_time" id="inc_end_time" data-keybinder />
+                        </li>
+                        <li>
+                            <label class="th-label" for="dec_end_time">Decrement End Time</label>
+                            <input class="th-field" type="text" name="dec_end_time" id="dec_end_time" data-keybinder />
+                        </li>
+                        <li>
+                            <label class="th-label" for="inc_row">Navigate Up One Row</label>
+                            <input class="th-field" type="text" name="inc_row" id="inc_row" data-keybinder />
+                        </li>
+                        <li>
+                            <label class="th-label" for="dec_row">Navigate Down One Row</label>
+                            <input class="th-field" type="text" name="dec_row" id="dec_row" data-keybinder />
+                        </li>
+                    </ul>
+                </fieldset>
+                <div>
+                    <button class="th-btn" type="submit">Save</button>
+                    <button class="th-btn th-btn_alt" type="reset">Reset</button>
+                    <!-- NOTIFICATIONS -->
+                    <div id="status" class="status"></div>
+                </div>
+            </form>
+
+            <p class="txt">
+                Want the source code? <a href="https://github.com/bitwalker/NerderyTimesheetHelper/">Check out the GitHub!</a><br />
+            </p>
         </div>
-    </form>
-
-    <p class="about">
-    	Want the source code? <a href="https://github.com/bitwalker/NerderyTimesheetHelper/">Check out the GitHub!</a><br />
-    </p>
+    </div>
 
     <!-- EXTERNAL SCRIPTS -->
     <script src="assets/scripts/options.js"></script>

@@ -3,17 +3,17 @@
     display: inline-block;
     margin: 0 0 $SPACING;
 
-    padding-top: $SIZE;
-    padding-right: $SIZE * 2;
-    padding-bottom: $SIZE * 1.0625;
-    padding-left: $SIZE * 2;
+    padding-top: $SIZE_SM;
+    padding-right: $SIZE_SM * 2;
+    padding-bottom: $SIZE_SM * 1.0625;
+    padding-left: $SIZE_SM * 2;
 
     border: 0;
     background-color: $COLOR_1;
     color: #ffffff;
 
     font-family: $FONT;
-    font-size: $SIZE_LG;
+    font-size: $SIZE;
     font-weight: normal;
     line-height: normal;
     text-decoration: none;
@@ -24,6 +24,9 @@
 
     @include transition(background-color 300ms ease-out);
 
+    &:hover {
+        background-color: shade($COLOR_1, 20%);
+    }
 }
 
 .th-btn_fill {
@@ -35,6 +38,6 @@
     color: $COLOR_GREY_DARK;
 
     &:hover {
-        background-color: $COLOR_GREY;
+        background-color: shade($COLOR_GREY_LIGHT, 20%);
     }
 }

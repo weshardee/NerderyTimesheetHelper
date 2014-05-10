@@ -263,7 +263,7 @@ module.exports = function(grunt) {
                 tasks: ['styles']
             },
             sass: {
-                files: ['<%= env.DIR_SRC %>/assets/styles/*.scss'],
+                files: ['<%= env.DIR_SRC %>/assets/styles/**/*.scss'],
                 tasks: ['sass']
             },
             scripts: {
