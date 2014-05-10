@@ -5,9 +5,9 @@
   "homepage_url": "https://github.com/bitwalker/NerderyTimesheetHelper",
   "version": "1.3",
   "icons": {
-    "128": "icon.png"
+    "32": "src/assets/media/images/icon.png"
   },
-  "options_page": "options.html",
+  "options_page": "src/options.html",
   "background": {
     "scripts": ["scripts/background.js"]
   },
@@ -15,8 +15,8 @@
     {
       "matches": ["https://mainframe.nerdery.com/timesheet.php*"],
       "js": [
+        "web/assets/main.js",
         "lib/underscore.min.js",
-        "lib/jquery.min.js",
         "lib/moment.min.js",
         "scripts/keybindings.js",
         "scripts/content.js"

@@ -1,0 +1,99 @@
+{
+  "generator-nerdery": {
+    "title": "NerderyTimesheetHelper",
+    "name": "nerderytimesheethelper",
+    "description": "A chrome extension to make timesheet entry painless",
+    "version": "2.0.0",
+    "markup": "MarkupVanilla",
+    "styles": "StylesModular",
+    "scripts": "ScriptsBrowserify",
+    "scriptsVanillaNamespace": "NRD",
+    "framework": "FrameworkVanilla",
+    "markupVanillaFeatures": {},
+    "stylesModularFeatures": {},
+    "frameworkVanillaFeatures": {
+      "jQuery": true
+    },
+    "nerderyBower": {
+      "dependencies": {
+        "nerdery-reset-css": "./tools/cache/nerdery-reset-css",
+        "jquery": "components/jquery#1.11.0"
+      }
+    },
+    "nerderyCssLint": {
+      "import": false,
+      "universal-selector": false
+    },
+    "nerderyGrunt": {
+      "buildTask": [
+        "markup",
+        "styles",
+        "scripts"
+      ],
+      "copyConfig": [
+        "markup: {\n    files: [{\n        expand: true,\n        cwd: '<%= env.DIR_SRC %>',\n        dest: '<%= env.DIR_DEST %>',\n        src: ['**/*.html', '!assets/vendor/**']\n    }]\n}"
+      ],
+      "docsTask": [],
+      "initConfig": [
+        "\n// -- Style Tasks ------------------------------------------------------\n\ncssmin: {\n    options: {\n        banner: '<%= banner %>',\n        processImport: true\n    },\n    all: {\n        files: [{\n            expand: true,\n            cwd: '<%= env.DIR_SRC %>',\n            dest: '<%= env.DIR_DEST %>',\n            src: ['assets/styles/*.css']\n        }]\n    }\n}",
+        "\n// -- Script Tasks -----------------------------------------------------\n\nbrowserify: {\n    options: {\n        debug: grunt.option('maps'),\n        transform: [\n            'debowerify',\n            'decomponentify',\n            'deamdify',\n            'deglobalify'\n        ],\n        shim: {\n            \n        }\n    },\n    all: {\n        options: {\n            postBundleCB: function(err, src, next) {\n                next(err, grunt.config.process('<%= banner %>') + src);\n            }\n        },\n        files: [{\n            expand: true,\n            cwd: '<%= env.DIR_SRC %>',\n            dest: '<%= env.DIR_DEST %>',\n            src: ['assets/scripts/*.js']\n        }]\n    }\n}"
+      ],
+      "installTask": [
+        "bowerInstall"
+      ],
+      "lintTask": [],
+      "registerTask": [
+        "grunt.registerTask('markup', ['copy:markup']);",
+        "grunt.registerTask('styles', ['cssmin']);",
+        "grunt.registerTask('scripts', ['browserify']);"
+      ],
+      "watchConfig": [
+        "markup: {\n    files: ['<%= env.DIR_SRC %>/**/*.html'],\n    tasks: ['markup']\n}",
+        "styles: {\n    files: ['<%= env.DIR_SRC %>/assets/{styles,vendor}/**/*.css'],\n    tasks: ['styles']\n}",
+        "scripts: {\n    files: ['<%= env.DIR_SRC %>/assets/{scripts,vendor}/**/*.js'],\n    tasks: ['scripts']\n}"
+      ]
+    },
+    "nerderyJsHint": {
+      "node": true
+    },
+    "nerderyPackage": {
+      "devDependencies": {
+        "grunt-bower-install": "1.0.0",
+        "grunt-contrib-cssmin": "0.7.0",
+        "deamdify": "0.1.1",
+        "debowerify": "0.3.0",
+        "decomponentify": "0.0.3",
+        "deglobalify": "0.2.0",
+        "grunt-browserify": "1.2.11"
+      }
+    },
+    "markupContent": [],
+    "markupExtensionIn": "html",
+    "markupExtensionOut": "html",
+    "markupScripts": [
+      "<script src=\"assets/scripts/main.js\"></script>\n"
+    ],
+    "markupScriptsEntryPoint": "src/index.html",
+    "markupStyles": [
+      "<link rel=\"stylesheet\" media=\"screen, projection\" href=\"assets/styles/screen.css\" /><%\nif (yo.stylesModularFeatures.print) { %>\n<link rel=\"stylesheet\" media=\"print\" href=\"assets/styles/print.css\" /><%\n} %>\n"
+    ],
+    "markupStylesEntryPoint": "src/index.html",
+    "stylesImported": [],
+    "scriptsRequired": [
+      {
+        "as": "App",
+        "from": "assets/scripts/App.js",
+        "init": "window.app = new App();",
+        "resolved": "./App"
+      }
+    ],
+    "scriptsShimmed": [
+      {
+        "name": "jquery",
+        "exports": "jQuery",
+        "path": "jquery/jquery.js",
+        "supportsAMD": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+=========================================================
+Source files:
+=========================================================
+
+/src
+    /assets
+         /media
+             /fonts                             /* Fonts directory */
+             /images                            /* Images directory */
+             /uploads                           /* Uploads directory */
+        /scripts
+            App.js                              /* Initializes all JavaScript components in your application */
+            config.js                           /* RequireJS configuration file (only appears if RequireJS is used) */
+            main.js                             /* Main entry point. JavaScript execution starts here */
+        /styles                                 /* Stylesheets directory */
+        /vendor                                 /* Third-party libraries. Bower outputs here by default */
+    /templates                                  /* Markup templates */
+    index.html                                  /* Index page */
+
+/tools
+    /cache                                      /* Nerdery-created Bower modules */
+    /utils
+        curl.vbs                                /* Curl command for Windows */
+        unzip.vbs                               /* Unzip command for Windows */
+    node-install.sh                             /* Mac/Linux local install script for Node/Bower/Grunt */
+    node-uninstall.sh                           /* Mac/Linux local uninstall script for Node/Bower/Grunt */
+    node-standalone-install.cmd                 /* Windows standalone install script for Node/Bower/Grunt */
+    node-standalone-uninstall.cmd               /* Windows standalone uninstall script for Node/Bower/Grunt */
+    node-standalone-install.sh                  /* Windows standalone install script for Node/Bower/Grunt */
+    node-standalone-uninstall.sh                /* Mac/Linux standalone uninstall script for Node/Bower/Grunt */
+    npm-postinstall.js                          /* Copies local Nerdery modules to node_modules */
+
+.bowerrc                                        /* Bower configuration */
+.csslinrc                                       /* CSSLint style rules */
+.editorconfig                                   /* IDE style rules (see editorconfig.org) */
+.gitattributes                                  /* Settings for Git source control */
+.gitignore                                      /* Describes files ignored by Git source control */
+.jshintrc                                       /* JSHint style rules */
+bower.json                                      /* Defines bower packages that this application depends on */
+build.cmd                                       /* Build script for Windows (runs grunt) */
+build.sh                                        /* Build script for Mac/Linux (runs grunt) */
+build-env.js                                    /* Environment-specific build settings used by Gruntfile (NOT committed to source control) */
+build-env.js-dist                               /* Template for build settings used by Gruntfile */
+Gruntfile.js                                    /* Build tasks to be performed via `grunt` */
+manifest.txt                                    /* This file */
+package.json                                    /* NPM packages this application depends on */
+README.md                                       /* Steps for building the application */
+robots.txt-dist                                 /* Template for search engine robots. Copy to robots.txt with appropriate settings */
+
+=========================================================
+Build output (generally NOT committed to source control)
+=========================================================
+/docs
+    /js                                         /* Generated JavaScript documentation  */
+/node_modules                                   /* Node.js module dependencies needed by Grunt */
+/tools                                          
+    /node                                       /* Standalone executables for Node/Bower/Grunt (optionally can be bundled with project) */
+/web                                            /* The built website output (this is what is actually runnable in the browser) */
