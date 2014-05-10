@@ -5,7 +5,7 @@
   "homepage_url": "https://github.com/weshardee/NerderyTimesheetHelper",
   "version": "2.0.0",
   "icons": {
-    "32": "web/assets/media/images/icon.png"
+    "128": "web/assets/media/images/icon.png"
   },
   "options_page": "src/options.html",
   "background": {
