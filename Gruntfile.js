@@ -105,13 +105,6 @@ module.exports = function(grunt) {
                     dest: '<%= env.DIR_DEST %>',
                     src: ['**/*.js']
                 }]
-            },
-                files: [{
-                    expand: true,
-                    cwd: '<%= env.DIR_SRC %>',
-                    dest: '<%= env.DIR_DEST %>',
-                    src: ['**/traceur-runtime.js']
-                }]
             }
         },
 
