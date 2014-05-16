@@ -20,12 +20,12 @@
                     <ul class="vList">
                         <li ng-repeat="binding in bindings">
                             <label class="th-label" for="{{binding.id}}">{{binding.label}}</label>
-                            <input class="th-field" type="text" name="{{binding.id}}" id="{{binding.id}}" data-keybinder />
+                            <input class="th-field" type="text" name="{{binding.id}}" id="{{binding.id}}" ng-model="binding.code" />
+                            <label class="txt" for="{{binding.id}}">{{binding.code}}</label>
                         </li>
                     </ul>
                 </fieldset>
                 <div>
-                    <a href="#" ng-click="save" class="th-btn">Save</a>
                     <button ng-click="save" class="th-btn" type="submit">Save</button>
                     <button ng-click="reset" class="th-btn th-btn_alt" type="reset">Reset</button>
                     <!-- NOTIFICATIONS -->
