@@ -1,116 +1,152 @@
+'use strict';
 
-var $ = require('jquery');
-var _ = require('lodash');
-var Keys = require('./keys/keys');
+var optionsApp = angular.module('optionsApp', []).constant('_', window._);
 
-var CLASS_ERROR = 'status_error';
-var CLASS_SUCCESS = 'status_success';
+var STATUS_ERROR = 'status_error';
+var STATUS_SUCCESS = 'status_success';
 
-// Default bindings
-var DEFAULT_BINDINGS = {
-    'inc_start_time': Keys.newCombo('Up',   ['shift']),
-    'dec_start_time': Keys.newCombo('Down', ['shift']),
-    'inc_end_time':   Keys.newCombo('Up',   ['ctrl']),
-    'dec_end_time':   Keys.newCombo('Down', ['ctrl']),
-    'inc_row':        Keys.newCombo('Up',   ['alt']),
-    'dec_row':        Keys.newCombo('Down', ['alt'])
-};
+optionsApp.controller('optionsController', function($scope, _) {
 
-var Bindings = _.clone(DEFAULT_BINDINGS);
+    $scope.awesomeThings = [
+        'HTML5 Boilerplate',
+        'AngularJS',
+        'Karma'
+    ];
 
-// Notifications
-var $status = $('#status');
-function success(message) {
-    $status.removeClass(CLASS_ERROR)
-        .addClass(CLASS_SUCCESS)
-        .html(message)
-        .fadeIn('fast').delay(1000).fadeOut('fast');
-}
-function error(message) {
-    $status.removeClass(CLASS_SUCCESS)
-        .addClass(CLASS_ERROR)
-        .html(message)
-        .fadeIn('fast').delay(1000).fadeOut('fast');
-}
+    $scope.bindings = [
+        {
+            // value: Keys.newCombo('Up', ['shift']),
+            id: 'inc_start_time',
+            label: 'Increment Start Time'
+        },
+        {
+            // value: Keys.newCombo('Down', ['shift']),
+            id: 'dec_start_time',
+            label: 'Decrement Start Time'
+        },
+        {
+            // value:   Keys.newCombo('Up',   ['ctrl']),
+            id: 'inc_end_time',
+            label: 'Increment End Time'
+        },
+        {
+            // value:   Keys.newCombo('Down', ['ctrl']),
+            id: 'dec_end_time',
+            label: 'Decrement End Time'
+        },
+        {
+            // value:        Keys.newCombo('Up',   ['alt']),
+            id: 'inc_row',
+            label: 'Navigate Up One Row'
+        },
+        {
+            // value:        Keys.newCombo('Down', ['alt']){
+            id: 'dec_row',
+            label: 'Navigate Down One Row'
+        }
+    ]
 
-// Bindings
-function saveBinding(combo, name) {
-    localStorage[name] = Keys.getComboString(combo);
-}
-
-function restoreBinding(combo, name) {
-    var comboString = localStorage[name];
-    if (comboString) {
-        Bindings[name] = Keys.comboFromString(comboString);
+    $scope.status = {
+        message: null,
+        type: null
     }
-}
 
-function displayBinding(combo, name) {
-    var $input = $('#' + name);
-    $input.val(Keys.getComboString(combo));
-}
+    // $scope.status.message = 'test';
+    // $scope.status.type = STATUS_ERROR;
+    // var $ = require('jquery');
+    // var _ = require('lodash');
+    // var Keys = require('./keys/keys');
 
-function onSubmit(e) {
-    e.preventDefault();
-    save();
-}
 
-function onReset(e) {
-    e.preventDefault();
-    reset();
-}
 
-function onKeydown(e) {
-    // Get the current key combo
-    var combo = Keys.getComboForEvent(e);
+    // Default bindings
+    var DEFAULT_BINDINGS = {
+        // 'inc_start_time': Keys.newCombo('Up',   ['shift']),
+    };
 
-    // On ESC or BACKSPACE, clear the input
-    if (combo.keyCode === Keys.Esc || combo.keyCode === Keys.Backspace) {
-        $(this).val('');
-        // Allow normal tab behavior
-    } else if (combo.keyCode === Keys.Tab) {
-        return;
-    // Otherwise, bind the current key combination
-    } else {
-        // Update current keybinding
-        Bindings[$(this).attr('name')] = combo;
-        // Display new binding
-        $(this).val(Keys.getComboString(combo));
+    // var Bindings = _.clone(DEFAULT_BINDINGS);
+
+    // Notifications
+    // var $status = $('#status');
+    // function success(message) {
+    //     $status.removeClass(STATUS_ERROR)
+    //         .addClass(STATUS_SUCCESS)
+    //         .html(message)
+    //         .fadeIn('fast').delay(1000).fadeOut('fast');
+    // }
+    // function error(message) {
+    //     $status.removeClass(STATUS_SUCCESS)
+    //         .addClass(STATUS_ERROR)
+    //         .html(message)
+    //         .fadeIn('fast').delay(1000).fadeOut('fast');
+    // }
+
+    // Bindings
+    function saveBinding(combo, name) {
+        // localStorage[name] = Keys.getComboString(combo);
     }
-    return false;
-}
 
-// Saves options to localStorage.
-function save() {
-    // Update stored options
-    _.each(Bindings, saveBinding);
-    success('Options Saved.');
-}
+    function restoreBinding(combo, name) {
+        var comboString = localStorage[name];
+        if (comboString) {
+            // Bindings[name] = Keys.comboFromString(comboString);
+        }
+    }
 
-// Restores options from localStorage
-function restore() {
-    _.each(Bindings, restoreBinding);
-    // Display keybindings
-    show();
-}
+    function displayBinding(combo, name) {
+        var $input = $('#' + name);
+        // $input.val(Keys.getComboString(combo));
+    }
 
-function show() {
-    _.each(Bindings, displayBinding);
-}
+    function onKeydown(e) {
+        // Get the current key combo
+        var combo = Keys.getComboForEvent(e);
 
-// Resets the options to the defaults
-function reset() {
-    Bindings = _.clone(DEFAULT_BINDINGS);
-    save();
-    show();
-}
+        // On ESC or BACKSPACE, clear the input
+        // if (combo.keyCode === Keys.Esc || combo.keyCode === Keys.Backspace) {
+        //     $(this).val('');
+        //     // Allow normal tab behavior
+        // } else if (combo.keyCode === Keys.Tab) {
+        //     return;
+        // // Otherwise, bind the current key combination
+        // } else {
+        //     // Update current keybinding
+        //     Bindings[$(this).attr('name')] = combo;
+        //     // Display new binding
+        //     $(this).val(Keys.getComboString(combo));
+        // }
+        return false;
+    }
 
-// On load, restore options if they were previously stored
-restore();
+    // Saves options to localStorage.
+    $scope.save = function() {
+        // Update stored options
+        console.log('save');
+        _.each($scope.bindings, saveBinding);
+        $scope.status.message = 'Options Saved.';
+        $scope.status.type = STATUS_SUCCESS;
+    }
 
-// When form is submitted, save options
-$('form').on('submit', onSubmit);
-$('form').on('reset', onReset);
+    // Restores options from localStorage
+    $scope.load = function() {
+        _.each($scope.bindings, restoreBinding);
+    }
 
-// Wire up keybind input fields
-$('input[data-keybinder]').on('keydown', onKeydown);
+    // Resets the options to the defaults
+    $scope.reset = function() {
+        $scope.bindings = _.clone(DEFAULT_BINDINGS);
+        $scope.save();
+    }
+
+    // On load, restore options if they were previously stored
+    $scope.load();
+
+    // When form is submitted, save options
+    // $('form').on('submit', onSubmit);
+    // $('form').on('reset', onReset);
+
+    // Wire up keybind input fields
+    // $('input[data-keybinder]').on('keydown', onKeydown);
+
+
+});

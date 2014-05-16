@@ -25,7 +25,8 @@
     "decomponentify": "0.0.3",
     "deglobalify": "0.2.0",
     "grunt-browserify": "1.2.11",
-    "grunt-sass": "^0.12.1"
+    "grunt-sass": "^0.12.1",
+    "es6ify": "^1.1.0"
   },
   "scripts": {
     "postinstall": "node tools/npm-postinstall"

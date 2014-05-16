@@ -97,6 +97,21 @@ module.exports = function(grunt) {
                     dest: '<%= env.DIR_DEST %>',
                     src: ['**/*.html', '!assets/vendor/**']
                 }]
+            },
+            scripts: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= env.DIR_SRC %>',
+                    dest: '<%= env.DIR_DEST %>',
+                    src: ['**/*.js']
+                }]
+            },
+                files: [{
+                    expand: true,
+                    cwd: '<%= env.DIR_SRC %>',
+                    dest: '<%= env.DIR_DEST %>',
+                    src: ['**/traceur-runtime.js']
+                }]
             }
         },
 
@@ -210,6 +225,7 @@ module.exports = function(grunt) {
             options: {
                 debug: grunt.option('maps'),
                 transform: [
+                    'es6ify',
                     'debowerify',
                     'decomponentify',
                     'deamdify',
@@ -315,5 +331,5 @@ module.exports = function(grunt) {
     grunt.registerTask('media', ['copy:media']);
     grunt.registerTask('markup', ['copy:markup']);
     grunt.registerTask('styles', ['sass']);
-    grunt.registerTask('scripts', ['browserify']);
+    grunt.registerTask('scripts', ['copy:scripts']);
 };
