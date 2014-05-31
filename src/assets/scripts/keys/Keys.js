@@ -1,17 +1,11 @@
-$http.get('codes.json').success(function(data) {
-    $scope.codes = data;
-});
+define(function(require, exports, module) { // jshint ignore:line
 
-var codes = 'codes.json';
+    var codes = require('json!codes');
 
-class Keys {
-
-    constructor() {
-
-    }
+    var Keys = {};
 
     // Get the name for the keycode provided
-    getNameFor(which) {
+    Keys.getNameFor = function(which) {
         for (key in codes) {
             if (which === codes[key]) {
                 return key;
@@ -22,7 +16,7 @@ class Keys {
     }
 
     // Get the keycode for the name provided
-    getCodeFor(key) {
+    Keys.getCodeFor = function(key) {
         return codes[key];
     }
 
@@ -30,7 +24,7 @@ class Keys {
      * key: The expected key (can be either a keycode or the letter)
      * which: The keyCode (from e.which) of the currently pressed key
      */
-    isKeyPressed(key, which) {
+    Keys.isKeyPressed = function(key, which) {
         var self = this;
         if (typeof key === 'string') {
             return which === this.getCodeFor(key);
@@ -49,7 +43,7 @@ class Keys {
     }
 
     // Determine if the provided combo was pressed
-    isComboPressed (combo, binding) {
+    Keys.isComboPressed = function(combo, binding) {
         if (!combo || !binding) return false;
 
         // If the key itself is the same, we just have to ensure the expected meta key is pressed
@@ -62,7 +56,7 @@ class Keys {
     }
 
     // Return true if the provided key is a meta key
-    isKeyMeta(keyCode) {
+    Keys.isKeyMeta = function(keyCode) {
         switch (keyCode) {
             case this.CTRL:
             case this.SHIFT:
@@ -76,7 +70,7 @@ class Keys {
     }
 
     // Return an empty combo object
-    getEmptyCombo() {
+    Keys.getEmptyCombo = function() {
         return {
             shift:   false,
             alt:     false,
@@ -87,7 +81,7 @@ class Keys {
     }
 
     // Given a keypress event, get the keycombo it contains
-    getComboForEvent(e) {
+    Keys.getComboForEvent = function(e) {
         var combo = this.getEmptyCombo();
         combo.shift   = e.shiftKey || false;
         combo.alt     = e.altKey   || false;
@@ -98,7 +92,7 @@ class Keys {
     }
 
     // Create a new key combination
-    newCombo(keyCode, meta) {
+    Keys.newCombo = function(keyCode, meta) {
         console.log('test');
         var combo = Keys.getEmptyCombo();
         meta = meta || [];
@@ -115,7 +109,7 @@ class Keys {
     }
 
     // Pretty print the provided combo
-    getComboString(combo) {
+    Keys.getComboString = function(combo) {
         var meta = (combo.ctrl  ? 'CTRL+'  : '') +
                    (combo.alt   ? 'ALT+'   : '') +
                    (combo.shift ? 'SHIFT+' : '') +
@@ -124,7 +118,7 @@ class Keys {
     }
 
     // Reverse of getComboString, you should get the original combo if you call comboFromString(getComboString)
-    comboFromString(str) {
+    Keys.comboFromString = function(str) {
         var parts     = str.split('+');
         var combo     = this.getEmptyCombo();
         combo.keyCode = this.getCodeFor(parts[parts.length - 1]);
@@ -136,7 +130,7 @@ class Keys {
     }
 
     // Check if a key combo requires the presence of the provided key
-    requiredBy(keyCode, combo) {
+    Keys.requiredBy = function(keyCode, combo) {
         if (combo.keyCode === keyCode)
             return true;
         else if (combo.ctrl && keyCode === this.CTRL)
@@ -151,7 +145,7 @@ class Keys {
     }
 
     // Check to see if the provided combo satisfies all the meta requirements for the provided binding combo
-    metaSatisfied(currentCombo, binding) {
+    Keys.metaSatisfied = function(currentCombo, binding) {
         if (binding.ctrl && !currentCombo.ctrl)
             return false;
         else if (binding.shift && !currentCombo.shift)
@@ -162,6 +156,6 @@ class Keys {
             return false;
         else return true;
     }
-}
 
-module.exports = new Keys();
+    module.exports = Keys;
+});
