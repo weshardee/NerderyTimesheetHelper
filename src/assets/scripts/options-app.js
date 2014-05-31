@@ -6,10 +6,17 @@ define(function(require, exports, module) { // jshint ignore:line
     var _ = require('lodash');
 
     // setup app
-    var app = angular.module('optionsApp', []).constant('_', _);
+    var appName = 'optionsApp'
+    var app = angular.module(appName, []);
+
+    // register constants;
+    app.constant('_', _);
 
     // register controllers
     app.controller('options', require('controllers/options'));
+
+    // initialize app
+    angular.bootstrap(document.getElementsByTagName('body')[0], [appName]);
 
     return app;
 });
