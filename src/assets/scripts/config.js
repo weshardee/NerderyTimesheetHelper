@@ -34,6 +34,8 @@
  */
 require.config({
     paths: {
+        'text': '../vendor/requirejs-text/text',
+        'json': '../vendor/requirejs-plugins/src/json',
         'angular': '../vendor/angular/angular',
         'lodash': '../vendor/lodash/dist/lodash'
     },
