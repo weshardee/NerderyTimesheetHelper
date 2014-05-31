@@ -1,6 +1,6 @@
 define(function(require, exports, module) { // jshint ignore:line
     var _ = require('lodash');
-    var Keys = require('keys/Keys');
+    var Keys = require('keys');
 
     var STATUS_ERROR = 'status_error';
     var STATUS_SUCCESS = 'status_success';

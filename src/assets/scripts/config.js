@@ -34,6 +34,7 @@
  */
 require.config({
     paths: {
+        'keys': 'lib/keys',
         'text': '../vendor/requirejs-text/text',
         'json': '../vendor/requirejs-plugins/src/json',
         'angular': '../vendor/angular/angular',
