@@ -195,7 +195,6 @@ define(function(require, exports, module) { // jshint ignore:line
 
     // Create a new key combination
     Keys.newCombo = function(keyCode, meta) {
-        console.log('test');
         var combo = Keys.getEmptyCombo();
         meta = meta || [];
         if (typeof keyCode === 'string')
