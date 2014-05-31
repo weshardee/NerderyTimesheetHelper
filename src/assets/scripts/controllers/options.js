@@ -6,40 +6,59 @@ define(function(require, exports, module) { // jshint ignore:line
     var STATUS_ERROR = 'status_error';
     var STATUS_SUCCESS = 'status_success';
 
+    // var codeTemplate = require('hbs!template');
+
     var optionsController = function($scope) {
+
+        var DEFAULT_BINDINGS = {
+            'inc_start_time': Keys.newCombo('Up', ['shift']),
+            'dec_start_time': Keys.newCombo('Down', ['shift']),
+            'inc_end_time': Keys.newCombo('Up', ['ctrl']),
+            'dec_end_time': Keys.newCombo('Down', ['ctrl']),
+            'inc_row': Keys.newCombo('Up', ['alt']),
+            'dec_row': Keys.newCombo('Down', ['alt'])
+        };
 
         $scope.bindings = [
             {
-                // value: Keys.newCombo('Up', ['shift']),
                 id: 'inc_start_time',
                 label: 'Increment Start Time'
             },
             {
-                // value: Keys.newCombo('Down', ['shift']),
                 id: 'dec_start_time',
                 label: 'Decrement Start Time'
             },
             {
-                // value:   Keys.newCombo('Up',   ['ctrl']),
                 id: 'inc_end_time',
                 label: 'Increment End Time'
             },
             {
-                // value:   Keys.newCombo('Down', ['ctrl']),
                 id: 'dec_end_time',
                 label: 'Decrement End Time'
             },
             {
-                // value:        Keys.newCombo('Up',   ['alt']),
                 id: 'inc_row',
                 label: 'Navigate Up One Row'
             },
             {
-                // value:        Keys.newCombo('Down', ['alt']){
                 id: 'dec_row',
                 label: 'Navigate Down One Row'
             }
         ]
+
+        function restoreDefault(binding) {
+            binding.code = DEFAULT_BINDINGS[binding.id];
+        }
+
+        function restoreDefaults() {
+            _.each($scope.bindings, restoreDefault);
+        }
+
+        // if no bindings are saved, use defaults
+        if ($scope.bindings[0].code == null) {
+            restoreDefaults();
+            //save();
+        }
 
         $scope.status = {
             message: null,
@@ -48,16 +67,6 @@ define(function(require, exports, module) { // jshint ignore:line
 
         // $scope.status.message = 'test';
         // $scope.status.type = STATUS_ERROR;
-        // var $ = require('jquery');
-        // var _ = require('lodash');
-        // var Keys = require('./keys/keys');
-
-
-
-        // Default bindings
-        var DEFAULT_BINDINGS = {
-            // 'inc_start_time': Keys.newCombo('Up',   ['shift']),
-        };
 
         // var Bindings = _.clone(DEFAULT_BINDINGS);
 
