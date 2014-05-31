@@ -5,7 +5,6 @@ define(function(require, exports, module) { // jshint ignore:line
     var STATUS_ERROR = 'status_error';
     var STATUS_SUCCESS = 'status_success';
 
-
     var optionsController = function($scope) {
 
         $scope.bindings = [
