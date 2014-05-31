@@ -20,8 +20,8 @@
                     <ul class="vList">
                         <li ng-repeat="binding in bindings">
                             <label class="th-label" for="{{binding.id}}">{{binding.label}}</label>
-                            <input class="th-field" type="text" name="{{binding.id}}" id="{{binding.id}}" ng-model="binding.code" ng-keypress="keypress" />
-                            <label class="txt" for="{{binding.id}}">{{binding.code}}</label>
+                            <input class="th-field" type="text" name="{{binding.id}}" id="{{binding.id}}" ng-text="binding.code" ng-keypress="keypress" />
+                            <label class="th-field" for="{{binding.id}}" ng-bind="binding.code"></label>
                         </li>
                     </ul>
                 </fieldset>
